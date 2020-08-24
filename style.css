@@ -1,0 +1,115 @@
+.carousel-item {
+  width: 100% !important;
+  height: 100vh !important;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background-color: #2e2e2e;
+}
+span {
+  white-space: pre;
+}
+.mytext {
+  /* width: 60%; */
+  /* margin: 0 auto; */
+  text-align: center;
+}
+.char::after {
+  font-size: 1.4rem;
+  content: attr(data-char);
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  transition: inherit;
+}
+.text--karaoke .char::after {
+  color: #fff;
+  visibility: visible !important;
+}
+.hash::after {
+  background-color: #fff;
+  visibility: visible !important;
+}
+.active .text--karaoke .char::after {
+  transition: all 0.25s calc(0.2s + var(--char-index) * 0.1s);
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+.text--karaoke .char::after {
+  -webkit-clip-path: inset(0 100% 0 0);
+  clip-path: inset(0 100% 0 0);
+}
+.text--karaoke .char {
+  color: rgba(255, 255, 255, 0.19);
+}
+.hash {
+  background-color: rgba(255, 255, 255, 0.19);
+  color: transparent !important;
+  display: inline-block;
+  margin: 0 2px;
+}
+.char {
+  display: inline-block;
+  position: relative;
+  font-size: 1.4rem;
+  -webkit-animation-delay: calc(0.2s + var(--char-index) * 0.1s);
+  animation-delay: calc(0.2s + var(--char-index) * 0.1s);
+}
+.text--fading .char {
+  color: #fff !important;
+}
+.text--fading .char {
+  opacity: 0;
+  transition: all 0.15s calc(0.2s + var(--char-index) * 0.1s);
+}
+.word{
+  word-break: keep-all;
+}
+.active .text--fading .char {
+  opacity: 1;
+}
+
+.text--fade .char {
+  opacity: 0;
+  transition: all 1s ease-in;
+}
+.active .text--fade .char {
+  opacity: 1;
+}
+
+.text_hash {
+  font-size: 1.4rem;
+  white-space: pre;
+  display: inline-block;
+}
+
+.text--blocks .char {
+  font-weight: normal !important;
+}
+.active .text--blocks  {
+  overflow: hidden;
+  transform: translateY(6px);
+  position: relative;
+}
+.active .text--blocks .char {
+  /* -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s; */
+  visibility: visible;
+}
+.text--blocks .char {
+  background-color: #999 !important;
+  color: transparent;
+}
+.text--blocks .char::after{
+  content: "";
+}
+.text_back .char{
+  background-color: transparent !important;
+  color: #fff !important;
+  transition: all 0.1s calc(0.2s + var(--char-index) * 0.1s);
+}
